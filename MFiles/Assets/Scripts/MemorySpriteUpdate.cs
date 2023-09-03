@@ -9,7 +9,7 @@ public class MemorySpriteUpdate : MonoBehaviour
     public int Fresh,memorySprite;
     public Flowchart flowchart;
     public Animator anim;
-    public string FungusVarName;
+    public string FungusVarName,MemoryStage;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class MemorySpriteUpdate : MonoBehaviour
      memorySprite=round-Fresh ;
     }
     anim.SetInteger("FreshStage",memorySprite);
-    flowchart.SetIntegerVariable("MemoryStage",memorySprite);
+    flowchart.SetIntegerVariable(MemoryStage,memorySprite);
 }
     }
    
