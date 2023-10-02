@@ -7,7 +7,7 @@ using Fungus;
 public class MemorySystem : MonoBehaviour
 {
     public Flowchart flowchart;
-    public int sceneNum,rounds;
+    public int dreamNum,sceneNum,rounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +39,18 @@ public class MemorySystem : MonoBehaviour
     if(sceneNum>0){
      sceneNum-=1;
      flowchart.SetIntegerVariable("SceneNum",sceneNum);
+    }
+    }
+     public void nextDream(){
+     if(dreamNum<4){
+    dreamNum+=1;
+     flowchart.SetIntegerVariable("DreamSceneNum",dreamNum);
+    }
+    }
+    public void previewsDream(){
+    if(dreamNum>0){
+     dreamNum-=1;
+     flowchart.SetIntegerVariable("DreamSceneNum",dreamNum);
     }
     }
 
