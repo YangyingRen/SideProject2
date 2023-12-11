@@ -42,6 +42,7 @@ public class MemoryTimeSelect : MonoBehaviour
         }
         else{
         MemoryOverview.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().NoSignal;
+        MemoryManagement.GetComponent<MemoryManagement>().MemoryCode=null;
         for(int j=0;j<MemoryOverview.transform.childCount;j++){
         MemoryOverview.transform.GetChild(j).GetComponent<Image>().sprite=MemoryOverview.transform.GetChild(j).GetComponent<MemoryOverview>().NoSignal;
         }
@@ -49,5 +50,35 @@ public class MemoryTimeSelect : MonoBehaviour
         }
     }
 
+    }
+    public void CheckIn(){
+    string[] MemoryCodes=MemoryManagement.GetComponent<MemoryManagement>().MemoryCodes;
+    Sprite[] MemoryOverviews=MemoryManagement.GetComponent<MemoryManagement>().MemoryOverview;
+    string MemoryCode=Month.ToString()+"."+Day.ToString();
+    if(transform.GetChild(0).GetComponent<Text>().text==""){
+       gameObject.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().DateOverview;
+       gameObject.GetComponent<Image>().color=new Color (1,1,1,0);
+       Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
+    }
+    else{
+        Cursor.SetCursor(gameObject.GetComponent<CursorControl>().clickIcon, Vector2.zero, CursorMode.Auto);
+    for(int i=0; i<MemoryCodes.Length;i++){
+        if(MemoryCode==MemoryCodes[i]){
+        gameObject.GetComponent<Image>().sprite=MemoryOverviews[i];
+        gameObject.GetComponent<Image>().color=Color.white;
+        }
+        else{
+        gameObject.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().NoSignal;
+        gameObject.GetComponent<Image>().color=Color.white;
+        }
+    }
+    }
+
+    }
+    public void CheckOut(){
+        gameObject.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().DateOverview;
+        gameObject.GetComponent<Image>().color=new Color (1,1,1,0);
+   // gameObject.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().NoSignal;
     }
 }

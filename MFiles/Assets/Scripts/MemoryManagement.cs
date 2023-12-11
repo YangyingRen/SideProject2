@@ -8,9 +8,10 @@ public class MemoryManagement : MonoBehaviour
 {
     public string[] MemoryCodes;
     public Sprite[] MemoryOverview;
-    public Sprite NoSignal;
+    public Sprite NoSignal, DateOverview;
     public string MemoryCode;
     public Flowchart flowchart;
+    public GameObject StartButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,12 @@ public class MemoryManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      flowchart.SetStringVariable("MemoryCode",MemoryCode);  
+      flowchart.SetStringVariable("MemoryCode",MemoryCode);
+      if(MemoryCode==null){
+        StartButton.SetActive(false);
+      }
+      else{
+        StartButton.SetActive(true);
+      }  
     }
 }

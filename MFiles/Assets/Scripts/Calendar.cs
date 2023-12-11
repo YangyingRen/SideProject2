@@ -109,7 +109,7 @@ public class Calendar : MonoBehaviour
                     int currDay = (w * 7) + i;
                     if (currDay < startDay || currDay - startDay >= endDay)
                     {
-                        newDay = new Day(currDay - startDay, Color.grey,weeks[w].GetChild(i).gameObject);
+                        newDay = new Day(currDay - startDay, new Color (1,1,1,0),weeks[w].GetChild(i).gameObject);
                     }
                     else
                     {
@@ -127,7 +127,7 @@ public class Calendar : MonoBehaviour
             {
                 if(i < startDay || i - startDay >= endDay)
                 {
-                    days[i].UpdateColor(Color.grey);
+                    days[i].UpdateColor(new Color (1,1,1,0));
                 }
                 else
                 {
