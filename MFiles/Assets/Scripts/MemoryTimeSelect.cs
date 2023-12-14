@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MemoryTimeSelect : MonoBehaviour
 {
     public GameObject Calendar,MemoryOverview,MemoryManagement;
-    public int Month,Day;
+    public int Month,Day,Year;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class MemoryTimeSelect : MonoBehaviour
     void Update()
     {
     Month=Calendar.GetComponent<Calendar>().currDate.Month;
+    Year=Calendar.GetComponent<Calendar>().currDate.Year;
     string currDay=transform.GetChild(0).gameObject.GetComponent<Text>().text;
     if(currDay!=""){
     Day=int.Parse(transform.GetChild(0).gameObject.GetComponent<Text>().text);
@@ -30,7 +31,7 @@ public class MemoryTimeSelect : MonoBehaviour
     public void CheckMemory(){
     string[] MemoryCodes=MemoryManagement.GetComponent<MemoryManagement>().MemoryCodes;
     Sprite[] MemoryOverviews=MemoryManagement.GetComponent<MemoryManagement>().MemoryOverview;
-    string MemoryCode=Month.ToString()+"."+Day.ToString();
+    string MemoryCode=Month.ToString()+"."+Day.ToString()+"."+Year.ToString();
     for(int i=0; i<MemoryCodes.Length;i++){
         if(MemoryCode==MemoryCodes[i]){
         MemoryOverview.GetComponent<Image>().sprite=MemoryOverviews[i];
@@ -54,7 +55,7 @@ public class MemoryTimeSelect : MonoBehaviour
     public void CheckIn(){
     string[] MemoryCodes=MemoryManagement.GetComponent<MemoryManagement>().MemoryCodes;
     Sprite[] MemoryOverviews=MemoryManagement.GetComponent<MemoryManagement>().MemoryOverview;
-    string MemoryCode=Month.ToString()+"."+Day.ToString();
+    string MemoryCode=Month.ToString()+"."+Day.ToString()+"."+Year.ToString();
     if(transform.GetChild(0).GetComponent<Text>().text==""){
        gameObject.GetComponent<Image>().sprite=MemoryManagement.GetComponent<MemoryManagement>().DateOverview;
        gameObject.GetComponent<Image>().color=new Color (1,1,1,0);

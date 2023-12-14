@@ -12,6 +12,8 @@ public class MemoryManagement : MonoBehaviour
     public string MemoryCode;
     public Flowchart flowchart;
     public GameObject StartButton;
+    public Text Date,Scene,Role;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class MemoryManagement : MonoBehaviour
     void Update()
     {
       flowchart.SetStringVariable("MemoryCode",MemoryCode);
+      Date.text=MemoryCode;
       if(MemoryCode==null){
         StartButton.SetActive(false);
       }
